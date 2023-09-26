@@ -144,7 +144,7 @@ def main(test=False):
                 "eventStartTime": "2023-06-23T23:01:38.256Z",
                 "eventEndTime": "2023-06-23T23:01:38.256Z",
                 "referenceAssets": [
-                    {"id": "DFPIafServerPrd.osisoft.ext_b4873d35-0e35-11eb-9383-f48c50815f37"}
+                    {"id": asset_id}
                 ],
                 "someValue": 12,
                 "id": event_id,
