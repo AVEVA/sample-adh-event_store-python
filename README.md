@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 
-[PIPELINE PLACEHOLDER]
+[![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status%2Fproduct-readiness%2FADH%2Fosisoft.sample-adh-event_store-python?repoName=osisoft%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=5625&repoName=osisoft%2Fsample-adh-event_store-python&branchName=main)
 
 Developed against Python 3.11.3.
 
