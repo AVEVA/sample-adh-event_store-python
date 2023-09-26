@@ -1,5 +1,7 @@
 from adh_sample_library_preview import ADHClient, AuthorizationTag, Asset, EnumerationState, EventGraphEventType, EventGraphEnumeration, EventGraphReferenceDataType, TypeProperty, PropertyTypeCode, PropertyTypeFlags, EventGraphReferenceDataCategory
+from datetime import datetime, timedelta
 import json
+import random
 import traceback
 
 
@@ -113,7 +115,7 @@ def main(test=False):
                 "referenceAssets": [
                     {"id": asset_id}
                 ],
-                "someValue": 12,
+                "someValue": int(100*random.random()),
                 "id": reference_data_id,
                 "authorizationTags": [authorization_tag.Id]
             }
@@ -141,12 +143,12 @@ def main(test=False):
         event_id = "SampleEventPyton"
         events = [
             {
-                "eventStartTime": "2023-06-23T23:01:38.256Z",
-                "eventEndTime": "2023-06-23T23:01:38.256Z",
+                "eventStartTime": (datetime.utcnow() - timedelta(minutes=5)).isoformat() + 'Z',
+                "eventEndTime": datetime.utcnow().isoformat() + 'Z',
                 "referenceAssets": [
                     {"id": asset_id}
                 ],
-                "someValue": 12,
+                "someValue": int(100*random.random()),
                 "id": event_id,
                 "authorizationTags": [authorization_tag.Id]
             }
@@ -256,6 +258,14 @@ def main(test=False):
         for reference_datum in reference_data:
             suppress_error(lambda: client.ReferenceData.deleteReferenceData(
                 namespace_id, reference_data_type_id, reference_datum['id']))
+
+        print('Deleteing assets')
+        suppress_error(lambda: client.Assets.deleteAsset(
+            namespace_id, asset_id))
+
+        print('Deleting authorization tag')
+        suppress_error(lambda: client.AuthorizationTags.deleteAuthorizationTag(
+            namespace_id, authorization_tag.Id))
 
         if test and exception is not None:
             raise exception
