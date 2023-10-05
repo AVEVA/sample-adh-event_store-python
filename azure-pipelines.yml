@@ -21,7 +21,7 @@ resources:
   repositories:
     - repository: OpsGuildAutomationRepo
       type: git
-      name: Engineering/OpsGuild.Automation
+      name: DevOps/opsguild.automation
       ref: refs/heads/main
     - repository: templates
       type: github
