@@ -27,6 +27,7 @@ resources:
       type: github
       name: AVEVA/AVEVA-Samples
       endpoint: AVEVA Grant
+      ref: refs/heads/test
 
 variables:
   - name: analysisProject
