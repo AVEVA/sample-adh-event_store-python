@@ -46,13 +46,6 @@ jobs:
     pool:
       name: ${{ parameters.pool }}
       demands: ${{ parameters.containerDemands }}
-    variables:
-      - name: ContactGivenName
-        value: Big
-      - name: ContactSurname
-        value: Tex
-      - name: ContactEmail
-        value: $(AuthorizationUsername)
     steps:
       - template: '/miscellaneous/build_templates/appsettings.yml@templates'
         parameters:
