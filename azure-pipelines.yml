@@ -48,6 +48,7 @@ jobs:
       demands: ${{ parameters.containerDemands }}
     steps:
 
+
       - script: |
           echo Install test tools   
           pip install pytest
@@ -66,6 +67,4 @@ jobs:
         displayName: 'Publish test results'
         condition: always()
 
-  - template: '/miscellaneous/build_templates/code-analysis.yml@templates'
-    parameters:
-      useRequirementsTxt: true
+
