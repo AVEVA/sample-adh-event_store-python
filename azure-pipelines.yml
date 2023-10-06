@@ -17,18 +17,6 @@ schedules:
         - main
     always: true
 
-resources:
-  repositories:
-    - repository: templates
-      type: github
-      name: AVEVA/AVEVA-Samples
-      endpoint: AVEVA
-
-variables:
-  - template: '/miscellaneous/build_templates/variables.yml@templates'
-  - name: analysisProject
-    value: sample-adh-event_store-python
-
 parameters:
   - name: pool
     default: DevOps Managed Containers Build
@@ -50,9 +38,6 @@ jobs:
       - name: ContactEmail
         value: $(AuthorizationUsername)
     steps:
-      - template: '/miscellaneous/build_templates/appsettings.yml@templates'
-        parameters:
-          secrets: 'TenantId, NamespaceId, CommunityId, ClientId, ClientSecret, Resource'
 
       - script: |
           echo Install test tools   
