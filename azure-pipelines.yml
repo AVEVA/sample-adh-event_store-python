@@ -17,6 +17,17 @@ schedules:
         - main
     always: true
 
+resources:
+  repositories:
+    - repository: OpsGuildAutomationRepo
+      type: git
+      name: DevOps/opsguild.automation
+      ref: refs/heads/main
+
+variables:
+  - name: analysisProject
+    value: sample-adh-event_store-python
+
 parameters:
   - name: pool
     default: DevOps Managed Containers Build
@@ -30,13 +41,6 @@ jobs:
     pool:
       name: ${{ parameters.pool }}
       demands: ${{ parameters.containerDemands }}
-    variables:
-      - name: ContactGivenName
-        value: Big
-      - name: ContactSurname
-        value: Tex
-      - name: ContactEmail
-        value: $(AuthorizationUsername)
     steps:
 
       - script: |
@@ -56,3 +60,7 @@ jobs:
           testRunTitle: '$(Agent.JobName) on $(Agent.OS)'
         displayName: 'Publish test results'
         condition: always()
+
+  - template: '/miscellaneous/build_templates/code-analysis.yml@templates'
+    parameters:
+      useRequirementsTxt: true
