@@ -23,10 +23,12 @@ resources:
       type: git
       name: DevOps/opsguild.automation
       ref: refs/heads/main
-
+    - repository: templates
+      type: github
+      name: AVEVA/AVEVA-Samples
+      endpoint: AVEVA Grant
 
 variables:
-  - template: '/miscellaneous/build_templates/variables.yml@templates'
   - name: analysisProject
     value: sample-adh-event_store-python
 
@@ -44,7 +46,9 @@ jobs:
       name: ${{ parameters.pool }}
       demands: ${{ parameters.containerDemands }}
     steps:
-
+      - template: '/miscellaneous/build_templates/appsettings.yml@templates'
+        parameters:
+          secrets: 'TenantId, NamespaceId, CommunityId, ClientId, ClientSecret, Resource'
 
       - script: |
           echo Install test tools   
@@ -64,4 +68,6 @@ jobs:
         displayName: 'Publish test results'
         condition: always()
 
-
+  - template: '/miscellaneous/build_templates/code-analysis.yml@templates'
+    parameters:
+      useRequirementsTxt: true
