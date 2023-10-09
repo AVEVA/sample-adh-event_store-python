@@ -27,7 +27,7 @@ resources:
       type: github
       name: AVEVA/AVEVA-Samples
       endpoint: AVEVA
-      ref: refs/heads/Test
+      ref: refs/heads/ado-migration-changes
 
 variables:
   - name: analysisProject
