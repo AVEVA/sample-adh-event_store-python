@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 
-[![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status%2Fproduct-readiness%2FADH%2Fosisoft.sample-adh-event_store-python?repoName=osisoft%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=5625&repoName=osisoft%2Fsample-adh-event_store-python&branchName=main)
+[![Build Status](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_apis/build/status%2Fproduct-readiness%2FCloud%20Operations%2FAVEVA.sample-adh-event_store-python?repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_build/latest?definitionId=14923&repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)
 
 Developed against Python 3.11.3.
 
