@@ -140,7 +140,7 @@ def main(test=False):
         # Step 8
         # Upsert events
         print('Upserting events')
-        event_id = "SampleEventPyton"
+        event_id = "SampleEventPython"
         events = [
             {
                 "eventStartTime": (datetime.utcnow() - timedelta(minutes=5)).isoformat() + 'Z',
@@ -259,7 +259,7 @@ def main(test=False):
             suppress_error(lambda: client.ReferenceData.deleteReferenceData(
                 namespace_id, reference_data_type_id, reference_datum['id']))
 
-        print('Deleteing assets')
+        print('Deleting assets')
         suppress_error(lambda: client.Assets.deleteAsset(
             namespace_id, asset_id))
 
