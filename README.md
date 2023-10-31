@@ -1,6 +1,9 @@
 # AVEVA Data Hub Event Store Python Sample
 
-**Version:** 1.0.0
+| :loudspeaker: **Notice**: This sample uses the AVEVA Data Hub Event Store, which is currently in preview. To get access to this feature, please reach out to your account manager. |
+| -----------------------------------------------------------------------------------------------|
+
+**Version:** 1.0.1
 
 [![Build Status](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_apis/build/status%2Fproduct-readiness%2FCloud%20Operations%2FAVEVA.sample-adh-event_store-python?repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_build/latest?definitionId=14923&repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)
 
@@ -8,6 +11,7 @@ Developed against Python 3.11.3.
 
 ## Requirements
 
+- AVEVA Data Hub with the Event Store feature enabled
 - Python 3.7+
 - Register a [Client-Credentials Client](https://datahub.connect.aveva.com/clients) in your AVEVA Data Hub tenant and create a client secret to use in the configuration of this sample. ([Video Walkthrough](https://www.youtube.com/watch?v=JPWy0ZX9niU)). Please note that a client is a different authentication method from using your user account to login.
 - The client that is registered must have "Manage Permissions" access on all collections and collection items that you intend to set security for. Generally, the Tenant Administrator role will have manage access unless a custom configuration has been set.

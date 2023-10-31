@@ -4,6 +4,13 @@ import json
 import random
 import traceback
 
+authorization_tag_id = 'SampleAuthorizationTagPython'
+enumeration_id = 'SampleEnumerationPython'
+reference_data_type_id = 'SampleReferenceDataTypePython'
+asset_id = 'SampleReferenceAssetPython'
+reference_data_id = 'SampleReferenceDataPython'
+event_type_id = 'SampleEventTypePython'
+event_id = 'SampleEventPython'
 
 def get_appsettings():
     """Open and parse the appsettings.json file"""
@@ -69,7 +76,7 @@ def main(test=False):
         # Step 2
         # Get or create authorization tag
         print('Creating an authorization tag')
-        authorization_tag = AuthorizationTag('SampleAuthorizationTagPython')
+        authorization_tag = AuthorizationTag(authorization_tag_id)
         authorization_tag = client.AuthorizationTags.getOrCreateAuthorizationTag(
             namespace_id, authorization_tag.Id, authorization_tag)
         client.GraphQL.checkForSchemaChanges(namespace_id)
@@ -80,7 +87,7 @@ def main(test=False):
         members = [EnumerationState(name='on', code=1),
                    EnumerationState(name='off', code=2)]
         enumeration = EventGraphEnumeration(
-            members, 'SampleEnumerationPython', 'SampleEnumerationPython', id='SampleEnumerationPython')
+            members, enumeration_id, enumeration_id, id=enumeration_id)
         enumeration = client.Enumerations.getOrCreateEnumeration(
             namespace_id, enumeration.Id, enumeration)
         client.GraphQL.checkForSchemaChanges(namespace_id)
@@ -88,10 +95,9 @@ def main(test=False):
         # Step 4
         # Get or create reference data type
         print('Creating a reference data type')
-        reference_data_type_id = 'SampleReferenceDataTypePython'
         reference_data_type_properties = [
             TypeProperty(PropertyTypeCode.ASSET, 'ReferenceAssets', 'ReferenceAssets', 'ReferenceAssets',
-                         PropertyTypeFlags.ReverseLookup | PropertyTypeFlags.IsCollection, property_type_id="none", remote_reference_name=reference_data_type_id),
+                         PropertyTypeFlags.ReverseLookup | PropertyTypeFlags.IsCollection, property_type_id='none', remote_reference_name=reference_data_type_id),
             TypeProperty(PropertyTypeCode.DOUBLE, 'SomeValue')]
         reference_data_type = EventGraphReferenceDataType(
             EventGraphReferenceDataCategory.REFERENCE_DATA, reference_data_type_properties, authorization_tag.Id, reference_data_type_id, id=reference_data_type_id)
@@ -102,22 +108,20 @@ def main(test=False):
         # Step 5
         # Get or create an Asset to reference
         print('Creating a reference asset')
-        asset_id = 'SampleReferenceAssetPython'
         asset = Asset(asset_id, asset_id)
         asset = client.Assets.getOrCreateAsset(namespace_id, asset)
 
         # Step 6
         # Upsert reference data
         print('Upserting reference data')
-        reference_data_id = "SampleReferenceDataPython"
         reference_data = [
             {
-                "referenceAssets": [
-                    {"id": asset_id}
+                'referenceAssets': [
+                    {'id': asset_id}
                 ],
-                "someValue": int(100*random.random()),
-                "id": reference_data_id,
-                "authorizationTags": [authorization_tag.Id]
+                'someValue': int(100*random.random()),
+                'id': reference_data_id,
+                'authorizationTags': [authorization_tag.Id]
             }
         ]
         reference_data = client.ReferenceData.getOrCreateReferenceData(
@@ -126,10 +130,9 @@ def main(test=False):
         # Step 7
         # Get or Create event type
         print('Creating an event type')
-        event_type_id = 'SampleEventTypePython'
         event_type_properties = [
             TypeProperty(PropertyTypeCode.ASSET, 'ReferenceAssets', 'ReferenceAssets', 'ReferenceAssets',
-                         PropertyTypeFlags.IsCollection, property_type_id="none", remote_reference_name=event_type_id),
+                         PropertyTypeFlags.IsCollection, property_type_id='none', remote_reference_name=event_type_id),
             TypeProperty(PropertyTypeCode.DOUBLE, 'SomeValue')]
         event_type = EventGraphEventType(
             event_type_properties, authorization_tag.Id, event_type_id, id=event_type_id, version=1)
@@ -140,17 +143,16 @@ def main(test=False):
         # Step 8
         # Upsert events
         print('Upserting events')
-        event_id = "SampleEventPython"
         events = [
             {
-                "eventStartTime": (datetime.utcnow() - timedelta(minutes=5)).isoformat() + 'Z',
-                "eventEndTime": datetime.utcnow().isoformat() + 'Z',
-                "referenceAssets": [
-                    {"id": asset_id}
+                'eventStartTime': (datetime.utcnow() - timedelta(minutes=5)).isoformat() + 'Z',
+                'eventEndTime': datetime.utcnow().isoformat() + 'Z',
+                'referenceAssets': [
+                    {'id': asset_id}
                 ],
-                "someValue": int(100*random.random()),
-                "id": event_id,
-                "authorizationTags": [authorization_tag.Id]
+                'someValue': int(100*random.random()),
+                'id': event_id,
+                'authorizationTags': [authorization_tag.Id]
             }
         ]
         events = client.Events.getOrCreateEvents(
@@ -210,7 +212,7 @@ def main(test=False):
         query = '''
         {
             events {
-                querySampleEventTypePython {
+                query''' + event_type_id + '''{
                 id
                 referenceAssets {
                     id
@@ -219,7 +221,7 @@ def main(test=False):
                 }
             }
             referenceData {
-                querySampleReferenceDataTypePython {
+                query''' + reference_data_id + '''{
                 id
                 referenceAssets {
                     id
