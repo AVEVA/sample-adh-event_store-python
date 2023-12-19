@@ -3,7 +3,7 @@
 | :loudspeaker: **Notice**: This sample uses the AVEVA Data Hub Event Store, which is currently in preview. To get access to this feature, please reach out to your account manager. |
 | -----------------------------------------------------------------------------------------------|
 
-**Version:** 1.0.1
+**Version:** 1.0.2
 
 [![Build Status](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_apis/build/status%2Fproduct-readiness%2FCloud%20Operations%2FAVEVA.sample-adh-event_store-python?repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_build/latest?definitionId=14923&repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)
 
@@ -35,7 +35,7 @@ This sample uses the sample python library, which makes REST API calls to ADH, t
 1. Get reference data
 1. Get event types
 1. Get events
-1. Use a graphQL query to retrieve events, refernce data, and assets
+1. Use a graphQL query to retrieve events, reference data, and assets
 1. Clean up the created events and reference data
 
 ## Configuring the sample
