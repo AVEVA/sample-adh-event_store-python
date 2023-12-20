@@ -21,20 +21,23 @@ Developed against Python 3.11.3.
 
 This sample uses the sample python library, which makes REST API calls to ADH, to show usage of the AVEVA Data Hub events store. The steps are as follows
 
-1. Create an AVEVA Data Hub client
 1. Get or create authorization tag
 1. Get or create enumeration
 1. Get or create reference data type
 1. Get or create an Asset to reference
 1. Upsert reference data
+1. Upsert reference data using reference data class
 1. Get or Create event type
 1. Upsert events
+1. Upsert events using event class
 1. Get authorization tags
 1. Get Enumerations
 1. Get reference data types
 1. Get reference data
+1. Get reference data with reference data class
 1. Get event types
 1. Get events
+1. Get events with event class
 1. Use a graphQL query to retrieve events, reference data, and assets
 1. Clean up the created events and reference data
 
