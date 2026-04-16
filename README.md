@@ -1,8 +1,5 @@
 # CONNECT data services Event Store Python Sample
 
-| :loudspeaker: **Notice**: This sample uses the CONNECT data services Event Store, which is currently in preview. To get access to this feature, please reach out to your account manager. |
-| -----------------------------------------------------------------------------------------------|
-
 **Version:** 1.0.2
 
 [![Build Status](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_apis/build/status%2Fproduct-readiness%2FCloud%20Operations%2FAVEVA.sample-adh-event_store-python?repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_build/latest?definitionId=14923&repoName=AVEVA%2Fsample-adh-event_store-python&branchName=main)
